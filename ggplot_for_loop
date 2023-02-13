@@ -3,18 +3,20 @@ library(ggplot2)
 
 # Load in your dataframe
 housing_data <- read.csv("./housing_data.csv")
-head(housing_data)
+
+# display the data
+#head(housing_data)
 
 # Select column headers you require to plot
 colNames = names(housing_data)[2:14]
 
-# Since you are going to use `aes_string`, pull the dependent variable from the dataframe as a 
-# separate vector
-Y = housing_data$MEDV
+# View the list of column names
+#colNames
 
 # For loop to print the different graphs
+# .data[[i]] reads the colNames vector for the loop
 for(i in colNames){
-    p <- ggplot(data=housing_data,aes(x= .data[[i]], y=Y)) + 
+    p <- ggplot(data=housing_data,aes(x= .data[[i]], y=MEDV)) + 
                      geom_point() + theme_minimal()
     print(p)
                               }
