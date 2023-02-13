@@ -14,7 +14,7 @@ Y = housing_data$MEDV
 
 # For loop to print the different graphs
 for(i in colNames){
-    p <- ggplot(data=housing_data,aes_string(x=i, y=Y)) + 
+    p <- ggplot(data=housing_data,aes(x= .data[[i]], y=Y)) + 
                      geom_point() + theme_minimal()
     print(p)
                               }
